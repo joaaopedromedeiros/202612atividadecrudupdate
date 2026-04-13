@@ -17,3 +17,8 @@
 - [ ] 8. Criar uma 2a página para atualizar produtos `/produtos/[id]` enviando atualização para a [api](https://dummyjson.com/docs/products#products-update)
 - [ ] 9. Commit com a mensagem "criado a página de edição de produto"
 - [ ] 10. Publicar projeto no repositório do github
+
+**Lembretes**
+1. Telas devem usar componentes [shadcnui](https://ui.shadcn.com/)
+2. Componentes devem ser estilizados com [tailwindcss](https://tailwindcss.com/)
+3. A aplicação deve ser composta por componentes da própria aplicação
