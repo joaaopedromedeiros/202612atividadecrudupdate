@@ -21,3 +21,28 @@ export async function getProdutos(): Promise<ProdutosResponse> {
 
   return res.json();
 }
+
+
+export async function getProdutoById(id: string) {
+  const res = await fetch(`https://dummyjson.com/products/${id}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) throw new Error("Erro ao buscar produto");
+
+  return res.json();
+}
+
+export async function updateProduto(id: string, data: any) {
+  const res = await fetch(`https://dummyjson.com/products/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) throw new Error("Erro ao atualizar produto");
+
+  return res.json();
+}
