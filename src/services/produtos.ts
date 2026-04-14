@@ -35,14 +35,23 @@ export async function getProdutoById(id: string) {
 
 export async function updateProduto(id: string, data: any) {
   const res = await fetch(`https://dummyjson.com/products/${id}`, {
-    method: "PUT",
+    method: "PUT", // ou PATCH
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify({
+      title: data.title,
+      description: data.description,
+      price: data.price,
+    }),
   });
 
-  if (!res.ok) throw new Error("Erro ao atualizar produto");
+  const response = await res.json();
 
-  return res.json();
+  if (!res.ok) {
+    console.error(response);
+    throw new Error("Erro ao atualizar produto");
+  }
+
+  return response;
 }
